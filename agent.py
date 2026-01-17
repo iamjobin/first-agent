@@ -18,7 +18,7 @@ async def llm_reasoning(prompt: str) -> dict:
             "action": "answer",
             "final_answer": "I can answer directly"
         }
-    
+
 
 async def run_agent(user_input: str):
     memory = []
@@ -47,8 +47,12 @@ async def run_agent(user_input: str):
             break
 
 
+async def async_input(prompt: str = "") -> str:
+    return await asyncio.to_thread(input, prompt)
+
+
 async def main():
-    user_input = input("Enter your query: ")
+    user_input = await async_input("Enter your query: ")
     await run_agent(user_input)
 
 

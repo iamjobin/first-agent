@@ -1,5 +1,6 @@
 from ollama import chat
 
+# check if the model is available
 response = chat(
     model='llama3.2',
     messages=[
